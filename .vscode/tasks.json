@@ -2,33 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
+            "type": "process",
             "label": "Build SFML",
-            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "command": "powershell.exe",
             "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "${fileDirname}\\main.cpp",
-                "${fileDirname}\\imgui\\imgui.cpp",
-                "${fileDirname}\\imgui\\imgui_draw.cpp",
-                "${fileDirname}\\imgui\\imgui_tables.cpp",
-                "${fileDirname}\\imgui\\imgui_widgets.cpp",
-                "${fileDirname}\\imgui\\imgui-SFML.cpp",
-                "-I${fileDirname}\\imgui",
-                "-o",
-                "${fileDirname}\\game.exe",
-                "-lsfml-graphics",
-                "-lsfml-window",
-                "-lsfml-system",
-                "-lopengl32",
-                "-static-libgcc",
-                "-static-libstdc++"
+                "-ExecutionPolicy",
+                "Bypass",
+                "-File",
+                "${workspaceFolder}\\build.ps1"
             ],
             "options": {
-                "cwd": "${fileDirname}",
-                "env": {
-                    "PATH": "C:\\msys64\\mingw64\\bin;${env:PATH}"
-                }
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
